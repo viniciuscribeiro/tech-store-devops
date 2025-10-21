@@ -1,0 +1,29 @@
+# /docker-compose.yml
+
+services:
+  # Serviço da API Principal (Node.js)
+  api-ecommerce:
+    build: ./api-ecommerce
+    ports:
+      - "3333:3333"
+    volumes:
+      # Mapeia o código local para dentro do contêiner para hot-reload
+      - ./api-ecommerce:/usr/src/app
+      # Evita que a node_modules local sobrescreva a do contêiner
+      - /usr/src/app/node_modules
+
+  # Serviço de IA (Python)
+  servico-ia:
+    build: ./servico-ia
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./servico-ia:/usr/src/app
+
+  # Serviço do Frontend (React + Nginx)
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80" # Mapeia a porta 3000 do seu PC para a porta 80 do contêiner Nginx
+    depends_on:
+      - api-ecommerce # Garante que o frontend só inicie depois do backend

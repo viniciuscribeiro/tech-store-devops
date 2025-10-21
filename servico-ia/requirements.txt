@@ -1,0 +1,4 @@
+# /servico-ia/requirements.txt
+fastapi
+uvicorn
+pandas

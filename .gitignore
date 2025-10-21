@@ -1,0 +1,21 @@
+# Dependências do Node.js
+node_modules
+dist
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Dependências do Python
+venv
+__pycache__/
+*.pyc
+.env
+
+# Banco de dados local
+/api-ecommerce/prisma/dev.db
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db

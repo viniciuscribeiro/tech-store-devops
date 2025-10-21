@@ -1,0 +1,27 @@
+// /api-ecommerce/prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db" // Nosso banco será um arquivo chamado dev.db
+}
+
+// Modelo para nossos produtos
+model Product {
+  id          String  @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  imageUrl    String
+}
+
+// Modelo para registrar as interações do usuário (a base da nossa IA)
+model InteractionEvent {
+  id        String   @id @default(uuid())
+  eventType String   // "product-viewed", "added-to-cart", etc.
+  productId String
+  userId    String   // Por enquanto, um ID simples de usuário
+  createdAt DateTime @default(now())
+}
