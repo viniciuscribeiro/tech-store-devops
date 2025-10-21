@@ -61,12 +61,6 @@ O fluxo de automação é o coração deste projeto e segue 4 passos principais:
 - **Backend (API):** Node.js, Express, TypeScript, Prisma
 - **Backend (IA):** Python, FastAPI, Pandas
 
----
-
-Claro\! Vamos corrigir a formatação dessas seções finais também. 📋
-
-Aqui está o bloco de texto correto, começando pela seção "Como Executar Localmente" até o final. Você pode substituir essa parte no seu `README.md` por este conteúdo:
-
 -----
 
 ## ⚙️ Como Executar Localmente
