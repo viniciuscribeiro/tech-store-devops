@@ -1,132 +1,162 @@
-# Tech Store Inteligente 🧠✨
+# Tech Store: Pipeline de CI/CD com Docker e GitHub Actions 🚀🐳
+
+![Badge](https://img.shields.io/badge/status-concluído-green)
+![Badge](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Badge](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Badge](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
 
 <br>
 
+> **Demonstração:** Este repositório implementa um pipeline de CI/CD completo para uma aplicação de microsserviços. A imagem abaixo mostra o workflow do GitHub Actions construindo e publicando com sucesso as imagens Docker para cada serviço após um `git push`.
+
+**[SUGESTÃO: TIRE UM PRINT DA SUA TELA DE "ACTIONS" COM O CHECK VERDE E COLOQUE AQUI]**
+![Workflow do GitHub Actions](https://i.imgur.com/link-para-sua-imagem.png)
+
+---
+
+## 📑 Índice
+
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Principais Conceitos de DevOps Aplicados](#-principais-conceitos-de-devops-aplicados)
+- [Arquitetura e Fluxo de CI/CD](#-arquitetura-e-fluxo-de-cicd)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Como Executar Localmente](#-como-executar-localmente)
+- [Contato](#-contato)
+
+---
+
 ## 📖 Sobre o Projeto
 
-A **Tech Store Inteligente** é uma vitrine de e-commerce full-stack desenvolvida como um projeto de portfólio para demonstrar habilidades em arquitetura de microsserviços e desenvolvimento de interfaces modernas.
+Este projeto demonstra a aplicação de práticas de DevOps para automatizar o processo de build e publicação de uma aplicação web de microsserviços. O foco não é a aplicação em si (uma loja de tecnologia com um sistema de recomendação), mas sim a **infraestrutura, containerização e o pipeline de integração e entrega contínua (CI/CD)**.
 
-O grande diferencial deste projeto é a sua arquitetura desacoplada, composta por três serviços independentes:
+O objetivo é simular um ambiente de desenvolvimento profissional onde cada alteração no código principal dispara um processo automatizado que prepara o software para o deploy.
 
-1.  **Frontend em React:** Uma interface de usuário reativa, visualmente atraente e com animações fluidas.
-2.  **API Principal em Node.js:** Um gateway que gerencia os dados dos produtos e se comunica com os outros serviços.
-3.  **Serviço de IA em Python:** Um microsserviço especializado que fornece recomendações de produtos com base em um algoritmo de filtragem colaborativa simples.
+---
 
-Este projeto simula um ambiente de desenvolvimento moderno e demonstra a capacidade de integrar diferentes tecnologias para criar uma solução coesa e funcional.
+## ✨ Principais Conceitos de DevOps Aplicados
 
------
+- **Containerização:** Cada serviço da aplicação (Frontend, API Principal, Serviço de IA) é encapsulado em seu próprio contêiner Docker, garantindo consistência e isolamento entre os ambientes de desenvolvimento e produção.
+- **Orquestração de Contêineres:** O `Docker Compose` é utilizado para definir e gerenciar a aplicação multi-contêiner localmente, permitindo que todo o sistema seja iniciado com um único comando.
+- **Integração Contínua (CI):** A cada `push` para a branch `main`, o GitHub Actions automaticamente executa o processo de build das três imagens Docker.
+- **Entrega Contínua (CD):** Após o build, o workflow faz o push das novas imagens para o Docker Hub, tornando-as disponíveis para serem implantadas em um ambiente de produção.
 
-## ✨ Principais Funcionalidades
+---
 
-  - **Interface Moderna:** Design com tema escuro, gradientes e efeitos de "Glassmorphism" para uma estética sofisticada.
-  - **Animações Fluidas:** Efeitos de carregamento em "esqueleto" (skeleton loading) e animações de entrada e hover nos cards de produto, proporcionando uma experiência de usuário (UX) superior.
-  - **Arquitetura de Microsserviços:** Backend desacoplado, facilitando a manutenção e escalabilidade.
-  - **Comunicação Inter-serviços:** O frontend consome dados da API Node.js, que por sua vez consulta o serviço de IA em Python para obter inteligência de negócio.
-  - **Backend Inteligente:** Lógica de recomendação simples ("usuários que viram X também viram Y") implementada em Python com Pandas.
+## 🏗️ Arquitetura e Fluxo de CI/CD
 
------
+O fluxo de automação é o coração deste projeto:
+Com certeza! Finalizar com uma documentação de primeira é a chave, especialmente para um projeto de DevOps. Este README vai focar em explicar a arquitetura e o processo de automação, que é o que impressiona aqui.
 
-## 🏗️ Arquitetura do Sistema
+Depois do README, te darei os comandos exatos para salvar tudo no Git.
 
-O sistema é dividido em três componentes principais que se comunicam via API REST:
+📜 O README.md Incrível
+Copie todo o conteúdo abaixo e cole no seu arquivo README.md na raiz do projeto tech-store-devops.
 
-```
-┌──────────────────┐      ┌─────────────────────────┐      ┌─────────────────────────┐
-│                  │      │                         │      │                         │
-│   Frontend       │──────▶   API Principal         │──────▶   Serviço de IA        │
-│   (React @ 5173) │      │   (Node.js @ 3333)      │      │   (Python @ 8000)       │
-│                  │◀──────   (com Banco de Dados)  │◀──────                        │
-│                  │      │                         │      │                         │
-└──────────────────┘      └─────────────────────────┘      └─────────────────────────┘
-```
+Markdown
 
-1.  **Frontend (React):** Responsável por toda a apresentação visual e interação com o usuário.
-2.  **API Principal (Node.js):** Atua como um *API Gateway*, centralizando as regras de negócio, gerenciando os dados dos produtos no banco de dados (SQLite via Prisma) e orquestrando a comunicação com o serviço de IA.
-3.  **Serviço de IA (Python):** Um microsserviço focado e especializado. Recebe o histórico de interações e um ID de produto, e devolve uma lista de produtos recomendados.
+# Tech Store: Pipeline de CI/CD com Docker e GitHub Actions 🚀🐳
 
------
+![Badge](https://img.shields.io/badge/status-concluído-green)
+![Badge](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Badge](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Badge](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Badge](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
+
+<br>
+
+> **Demonstração:** Este repositório implementa um pipeline de CI/CD completo para uma aplicação de microsserviços. A imagem abaixo mostra o workflow do GitHub Actions construindo e publicando com sucesso as imagens Docker para cada serviço após um `git push`.
+
+**[SUGESTÃO: TIRE UM PRINT DA SUA TELA DE "ACTIONS" COM O CHECK VERDE E COLOQUE AQUI]**
+![Workflow do GitHub Actions](https://i.imgur.com/link-para-sua-imagem.png)
+
+---
+
+## 📑 Índice
+
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Principais Conceitos de DevOps Aplicados](#-principais-conceitos-de-devops-aplicados)
+- [Arquitetura e Fluxo de CI/CD](#-arquitetura-e-fluxo-de-cicd)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Como Executar Localmente](#-como-executar-localmente)
+- [Contato](#-contato)
+
+---
+
+## 📖 Sobre o Projeto
+
+Este projeto demonstra a aplicação de práticas de DevOps para automatizar o processo de build e publicação de uma aplicação web de microsserviços. O foco não é a aplicação em si (uma loja de tecnologia com um sistema de recomendação), mas sim a **infraestrutura, containerização e o pipeline de integração e entrega contínua (CI/CD)**.
+
+O objetivo é simular um ambiente de desenvolvimento profissional onde cada alteração no código principal dispara um processo automatizado que prepara o software para o deploy.
+
+---
+
+## ✨ Principais Conceitos de DevOps Aplicados
+
+- **Containerização:** Cada serviço da aplicação (Frontend, API Principal, Serviço de IA) é encapsulado em seu próprio contêiner Docker, garantindo consistência e isolamento entre os ambientes de desenvolvimento e produção.
+- **Orquestração de Contêineres:** O `Docker Compose` é utilizado para definir e gerenciar a aplicação multi-contêiner localmente, permitindo que todo o sistema seja iniciado com um único comando.
+- **Integração Contínua (CI):** A cada `push` para a branch `main`, o GitHub Actions automaticamente executa o processo de build das três imagens Docker.
+- **Entrega Contínua (CD):** Após o build, o workflow faz o push das novas imagens para o Docker Hub, tornando-as disponíveis para serem implantadas em um ambiente de produção.
+
+---
+
+## 🏗️ Arquitetura e Fluxo de CI/CD
+
+O fluxo de automação é o coração deste projeto e segue 4 passos principais:
+
+**1. 👨‍💻 Desenvolvedor → `git push`**
+> Tudo começa quando o desenvolvedor envia o novo código (`git push`) para a branch `main` do repositório no GitHub.
+
+**2. 🤖 GitHub → GitHub Actions**
+> O push aciona automaticamente o workflow definido em `.github/workflows/`. Uma máquina virtual é iniciada para executar os próximos passos.
+
+**3. 📦 Ação → Build & Push**
+> O workflow executa o build de cada um dos três serviços (`api`, `ia`, `frontend`), criando imagens Docker otimizadas para cada um. Após o build, ele faz o push dessas imagens para o Docker Hub.
+
+**4. 🐳 Docker Hub → Armazenamento**
+> O Docker Hub recebe e armazena as novas versões das imagens, que agora estão prontas para serem baixadas e implantadas em qualquer ambiente de produção.
+
+---
 
 ## 🚀 Tecnologias Utilizadas
 
-Este projeto foi construído com as seguintes tecnologias:
+**DevOps & Infraestrutura:**
+- **Docker** & **Docker Compose**
+- **GitHub Actions** (CI/CD)
+- **Docker Hub** (Container Registry)
 
-**Frontend:**
+**Stack da Aplicação:**
+- **Frontend:** React, TypeScript, Vite, Nginx
+- **Backend (API):** Node.js, Express, TypeScript, Prisma
+- **Backend (IA):** Python, FastAPI, Pandas
 
-  - **React** com **Vite**
-  - **TypeScript**
-  - **Chakra UI** (Biblioteca de Componentes)
-  - **Framer Motion** (Animações)
-  - **Axios** (Cliente HTTP)
+---
 
-**Backend:**
+Claro\! Vamos corrigir a formatação dessas seções finais também. 📋
 
-  - **API Principal:**
-      - **Node.js**
-      - **Express.js**
-      - **TypeScript**
-      - **Prisma ORM** (Comunicação com o Banco de Dados)
-  - **Serviço de IA:**
-      - **Python**
-      - **FastAPI** (Framework da API)
-      - **Pandas** (Manipulação de Dados)
-
-**Banco de Dados:**
-
-  - **SQLite**
+Aqui está o bloco de texto correto, começando pela seção "Como Executar Localmente" até o final. Você pode substituir essa parte no seu `README.md` por este conteúdo:
 
 -----
 
-## ⚙️ Como Executar o Projeto
+## ⚙️ Como Executar Localmente
 
-Siga os passos abaixo para executar o projeto em seu ambiente local.
-
-**Pré-requisitos:**
-
-  - [Node.js](https://nodejs.org/en/) (v18 ou superior)
-  - [Python](https://www.python.org/downloads/) (v3.8 ou superior)
-
-**1. Clone o repositório:**
+Com Docker e Docker Compose instalados, basta um comando na raiz do projeto:
 
 ```bash
-git clone https://github.com/viniciuscribeiro/projeto-recomendacao.git
-cd projeto-recomendacao
+# Constrói as imagens (se não existirem) e inicia todos os serviços
+docker-compose up
 ```
 
-**2. Execute o Backend (API Principal - Node.js):**
+A aplicação estará disponível em `http://localhost:3000`.
+
+Para parar e remover os contêineres, use:
 
 ```bash
-cd api-ecommerce
-npm install
-npx prisma migrate dev
-npm run dev
-# O servidor estará rodando em http://localhost:3333
-```
-
-**3. Execute o Backend (Serviço de IA - Python):**
-
-```bash
-# Em um novo terminal
-cd servico-ia
-python -m venv venv
-# No Windows:
-.\venv\Scripts\Activate.ps1
-# No Linux/macOS:
-source venv/bin/activate
-pip install -r requirements.txt # (Você precisará criar este arquivo)
-uvicorn main:app --reload
-# O servidor estará rodando em http://localhost:8000
-```
-
-> **Nota:** Para o passo `pip install`, crie um arquivo `requirements.txt` na pasta `servico-ia` e adicione as dependências: `fastapi`, `uvicorn`, `pandas`.
-
-**4. Execute o Frontend (React):**
-
-```bash
-# Em um terceiro terminal
-cd frontend
-npm install
-npm run dev
-# A aplicação estará disponível em http://localhost:5173
+docker-compose down
 ```
 
 -----
